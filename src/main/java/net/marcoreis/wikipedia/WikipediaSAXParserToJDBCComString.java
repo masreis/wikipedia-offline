@@ -99,6 +99,7 @@ public class WikipediaSAXParserToJDBCComString extends DefaultHandler {
 
     public void parse() {
 	try {
+	    logger.info("Inicio");
 	    SAXParserFactory factory = SAXParserFactory.newInstance();
 	    factory.setNamespaceAware(true);
 	    SAXParser parser = factory.newSAXParser();
