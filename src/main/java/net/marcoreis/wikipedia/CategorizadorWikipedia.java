@@ -22,7 +22,6 @@ public class CategorizadorWikipedia {
 	    ResultSet rs = daoPagina.findAll();
 	    while (rs.next()) {
 		String texto = rs.getString("text");
-		int id = rs.getInt("id");
 		Matcher matcher = pattern.matcher(texto);
 		//
 		while (matcher.find()) {

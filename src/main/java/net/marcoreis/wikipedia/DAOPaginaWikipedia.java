@@ -8,8 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
-import javax.sql.rowset.CachedRowSet;
-
 import org.apache.log4j.Logger;
 
 public class DAOPaginaWikipedia {
@@ -55,7 +53,9 @@ public class DAOPaginaWikipedia {
     public ResultSet findAll() {
 	try {
 	    String sql = "select id, text from PaginaWikipedia";
-	    PreparedStatement pstmt = conexao.prepareStatement(sql);
+	    PreparedStatement pstmt = conexao.prepareStatement(sql,
+		    ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+	    pstmt.setFetchSize(Integer.MIN_VALUE);
 	    ResultSet rs = pstmt.executeQuery();
 	    return rs;
 	} catch (Exception e) {

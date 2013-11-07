@@ -13,13 +13,13 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-public class WikipediaSAXParserToJDBC extends DefaultHandler {
+public class WikipediaSAXParserToJDBCComString extends DefaultHandler {
     private static String nomeArquivo = System.getProperty("user.home")
 	    + "/dados/ptwiki-20130817-pages-articles-multistream.xml";
     private static Logger logger = Logger
-	    .getLogger(WikipediaSAXParserToJDBC.class);
+	    .getLogger(WikipediaSAXParserToJDBCComString.class);
     private PaginaWikipedia pagina;
-    private StringBuilder content = new StringBuilder();
+    private String content;
     // Formato da data no dump da Wikipedia
     private SimpleDateFormat sdf = new SimpleDateFormat(
 	    "yyyy-MM-dd'T'HH:mm:ss'Z'");
@@ -30,29 +30,29 @@ public class WikipediaSAXParserToJDBC extends DefaultHandler {
 	    Attributes attributes) throws SAXException {
 	if (qName.equals("page")) {
 	    pagina = new PaginaWikipedia();
-	    content.setLength(0);
+	    content = "";
 	} else if (qName.equals("title")) {
-	    content.setLength(0);
+	    content = "";
 	} else if (qName.equals("timestamp")) {
-	    content.setLength(0);
+	    content = "";
 	} else if (qName.equals("username")) {
-	    content.setLength(0);
+	    content = "";
 	} else if (qName.equals("text")) {
-	    content.setLength(0);
+	    content = "";
 	} else if (qName.equals("model")) {
-	    content.setLength(0);
+	    content = "";
 	} else if (qName.equals("format")) {
-	    content.setLength(0);
+	    content = "";
 	} else if (qName.equals("comment")) {
-	    content.setLength(0);
+	    content = "";
 	} else if (qName.equals("id")) {
-	    content.setLength(0);
+	    content = "";
 	}
     }
 
     public void characters(char[] ch, int start, int length)
 	    throws SAXException {
-	content.append(String.copyValueOf(ch, start, length).trim());
+	content += (String.copyValueOf(ch, start, length).trim());
     }
 
     public void endElement(String uri, String localName, String qName)
@@ -63,27 +63,27 @@ public class WikipediaSAXParserToJDBC extends DefaultHandler {
 	    // pagina = null;
 	    logAndamento();
 	} else if (qName.equals("title")) {
-	    pagina.setTitle(content.toString());
+	    pagina.setTitle(content);
 	} else if (qName.equals("timestamp")) {
 	    try {
-		Date timestamp = sdf.parse(content.toString());
+		Date timestamp = sdf.parse(content);
 		pagina.setTimeStamp(timestamp);
 	    } catch (ParseException e) {
 		logger.error(e);
 	    }
 	} else if (qName.equals("username")) {
-	    pagina.setUserName(content.toString());
+	    pagina.setUserName(content);
 	} else if (qName.equals("text")) {
-	    pagina.setText(content.toString());
+	    pagina.setText(content);
 	} else if (qName.equals("model")) {
-	    pagina.setModel(content.toString());
+	    pagina.setModel(content);
 	} else if (qName.equals("format")) {
-	    pagina.setFormat(content.toString());
+	    pagina.setFormat(content);
 	} else if (qName.equals("comment")) {
-	    pagina.setComment(content.toString());
+	    pagina.setComment(content);
 	} else if (qName.equals("id")) {
 	    if (pagina.getId() == null)
-		pagina.setId(new Long(content.toString()));
+		pagina.setId(new Long(content));
 	}
     }
 
@@ -94,7 +94,7 @@ public class WikipediaSAXParserToJDBC extends DefaultHandler {
     }
 
     public static void main(String[] args) {
-	new WikipediaSAXParserToJDBC().parse();
+	new WikipediaSAXParserToJDBCComString().parse();
     }
 
     public void parse() {
