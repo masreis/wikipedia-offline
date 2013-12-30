@@ -14,4 +14,9 @@ public class TesteException {
 	}
     }
 
+    private void algumMetodo() {
+	// TODO Auto-generated method stub
+	
+    }
+
 }

@@ -1,7 +1,13 @@
-package net.marcoreis.wikipedia;
+package net.marcoreis.wikipedia.vo;
 
 import java.util.Date;
 
+/**
+ * Value Object que representa os atributos de uma página da wikipedia
+ * 
+ * @author marco
+ * 
+ */
 public class PaginaWikipedia {
     private Long id;
     private String title;
@@ -61,19 +67,19 @@ public class PaginaWikipedia {
     }
 
     public Date getTimeStamp() {
-        return timeStamp;
+	return timeStamp;
     }
 
     public void setTimeStamp(Date timeStamp) {
-        this.timeStamp = timeStamp;
+	this.timeStamp = timeStamp;
     }
 
     public String getUserName() {
-        return userName;
+	return userName;
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+	this.userName = userName;
     }
 
 }

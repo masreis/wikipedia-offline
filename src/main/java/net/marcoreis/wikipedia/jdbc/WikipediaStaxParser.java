@@ -1,4 +1,4 @@
-package net.marcoreis.wikipedia;
+package net.marcoreis.wikipedia.jdbc;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -15,8 +15,11 @@ import javax.xml.stream.events.EndElement;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 
+import net.marcoreis.wikipedia.vo.PaginaWikipedia;
+
 import org.apache.log4j.Logger;
 
+// Esta classe não está concluída
 public class WikipediaStaxParser {
     private static String nomeArquivo = System.getProperty("user.home")
 	    + "/dados/ptwiki-20130417-stub-articles.xml";

@@ -1,10 +1,12 @@
-package net.marcoreis.wikipedia;
+package net.marcoreis.wikipedia.jdbc;
 
 import java.sql.ResultSet;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import net.marcoreis.wikipedia.vo.CategoriaWikipedia;
 
 import org.apache.log4j.Logger;
 

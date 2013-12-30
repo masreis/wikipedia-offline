@@ -1,5 +1,11 @@
-package net.marcoreis.wikipedia;
+package net.marcoreis.wikipedia.vo;
 
+/**
+ * Value Object que representa uma categoria da wikipedia
+ * 
+ * @author marco
+ * 
+ */
 public class CategoriaWikipedia {
     private Long id;
     private String descricao;

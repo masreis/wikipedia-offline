@@ -1,4 +1,4 @@
-package net.marcoreis.wikipedia;
+package net.marcoreis.wikipedia.jdbc;
 
 import java.io.File;
 import java.text.ParseException;
@@ -7,6 +7,8 @@ import java.util.Date;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+
+import net.marcoreis.wikipedia.vo.PaginaWikipedia;
 
 import org.apache.log4j.Logger;
 import org.xml.sax.Attributes;

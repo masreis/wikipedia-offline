@@ -1,4 +1,4 @@
-package net.marcoreis.wikipedia;
+package net.marcoreis.wikipedia.jdbc;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+
+import net.marcoreis.wikipedia.vo.PaginaWikipedia;
 
 import org.apache.log4j.Logger;
 

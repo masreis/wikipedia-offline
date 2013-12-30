@@ -1,9 +1,11 @@
-package net.marcoreis.wikipedia;
+package net.marcoreis.wikipedia.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+import net.marcoreis.wikipedia.vo.CategoriaWikipedia;
 
 import org.apache.log4j.Logger;
 
