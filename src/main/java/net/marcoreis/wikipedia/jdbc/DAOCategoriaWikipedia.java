@@ -29,7 +29,7 @@ public class DAOCategoriaWikipedia {
 
     public void inserir(CategoriaWikipedia categoria) {
 	try {
-	    String sql = "insert into Categoria (descricao) values (?)";
+	    String sql = "insert into CategoriaWikipedia (descricao) values (?)";
 	    PreparedStatement pstmt = conexao.prepareStatement(sql);
 	    pstmt.setString(1, categoria.getDescricao());
 	    pstmt.executeUpdate();

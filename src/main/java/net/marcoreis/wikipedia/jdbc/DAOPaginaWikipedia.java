@@ -15,7 +15,7 @@ import org.apache.log4j.Logger;
 public class DAOPaginaWikipedia {
     private static Logger logger = Logger.getLogger(DAOPaginaWikipedia.class);
     private Connection conexao;
-    private String pwd = "";
+    private String pwd = "root";
     private String user = "root";
     private String url = "jdbc:mysql://localhost:3306/db_wikipedia";
     private String driver = "com.mysql.jdbc.Driver";

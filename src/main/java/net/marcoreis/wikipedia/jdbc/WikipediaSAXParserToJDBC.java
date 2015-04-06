@@ -17,7 +17,7 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class WikipediaSAXParserToJDBC extends DefaultHandler {
     private static String nomeArquivo = System.getProperty("user.home")
-	    + "/dados/ptwiki-20130817-pages-articles-multistream.xml";
+	    + "/dados/ptwiki-latest-pages-articles.xml";
     private static Logger logger = Logger
 	    .getLogger(WikipediaSAXParserToJDBC.class);
     private PaginaWikipedia pagina;
