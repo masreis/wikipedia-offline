@@ -8,8 +8,6 @@ import java.sql.Statement;
 
 import org.apache.log4j.Logger;
 
-import com.mysql.jdbc.StringUtils;
-
 public class GerarDumpCSV {
 
     private static Logger logger = Logger.getLogger(GerarDumpCSV.class);
@@ -29,12 +27,18 @@ public class GerarDumpCSV {
     }
 
     public void iniciar() {
-        String sql = "select id, title, timestamp, username, text, model, format, comment from PaginaWikipedia";
+        String sql = "select id, title, timestamp, username, text, model, format, comment from PaginaWikipedia ";
+        // sql += "where text like '%star trek%'";
+        sql += "limit 100000 ";
         try {
-            Statement stmt = conexao.createStatement();
+            Statement stmt = conexao.createStatement(
+                    java.sql.ResultSet.TYPE_FORWARD_ONLY,
+                    java.sql.ResultSet.CONCUR_READ_ONLY);
+            conexao.setAutoCommit(false);
+            stmt.setFetchSize(Integer.MIN_VALUE);
             ResultSet rs = stmt.executeQuery(sql);
             String caminho = System.getProperty("user.home")
-                    + "/dados/dump-wikipedia.csv";
+                    + "/dados/dump-wikipedia-parcial.csv";
             FileWriter fw = new FileWriter(caminho);
             while (rs.next()) {
                 fw.write(rs.getString(1));
