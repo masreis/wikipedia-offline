@@ -1,4 +1,4 @@
-package net.marcoreis.wikipedia.jdbc;
+package net.marcoreis.wikipedia.dump;
 
 import java.io.FileWriter;
 import java.sql.Connection;
@@ -6,11 +6,12 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class GerarDumpCSV {
 
-    private static Logger logger = Logger.getLogger(GerarDumpCSV.class);
+    private static Logger logger = LoggerFactory.getLogger(GerarDumpCSV.class);
     private Connection conexao;
     private String pwd = "root";
     private String user = "root";
@@ -31,14 +32,12 @@ public class GerarDumpCSV {
         // sql += "where text like '%star trek%'";
         sql += "limit 100000 ";
         try {
-            Statement stmt = conexao.createStatement(
-                    java.sql.ResultSet.TYPE_FORWARD_ONLY,
+            Statement stmt = conexao.createStatement(java.sql.ResultSet.TYPE_FORWARD_ONLY,
                     java.sql.ResultSet.CONCUR_READ_ONLY);
             conexao.setAutoCommit(false);
             stmt.setFetchSize(Integer.MIN_VALUE);
             ResultSet rs = stmt.executeQuery(sql);
-            String caminho = System.getProperty("user.home")
-                    + "/dados/dump-wikipedia-parcial.csv";
+            String caminho = System.getProperty("user.home") + "/dados/dump-wikipedia-parcial.csv";
             FileWriter fw = new FileWriter(caminho);
             while (rs.next()) {
                 fw.write(rs.getString(1));
@@ -60,7 +59,7 @@ public class GerarDumpCSV {
             stmt.close();
             fw.close();
         } catch (Exception e) {
-            logger.error(e);
+            logger.error(e.toString());
             e.printStackTrace();
         }
 

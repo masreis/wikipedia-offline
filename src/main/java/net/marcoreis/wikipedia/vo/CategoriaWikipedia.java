@@ -11,23 +11,23 @@ public class CategoriaWikipedia {
     private String descricao;
 
     public CategoriaWikipedia(String descricao) {
-	this.descricao = descricao;
+        this.descricao = descricao;
     }
 
     public void setId(Long id) {
-	this.id = id;
+        this.id = id;
     }
 
     public Long getId() {
-	return id;
+        return id;
     }
 
     public void setDescricao(String descricao) {
-	this.descricao = descricao;
+        this.descricao = descricao;
     }
 
     public String getDescricao() {
-	return descricao;
+        return descricao;
     }
 
 }

@@ -19,67 +19,78 @@ public class PaginaWikipedia {
     private String comment;
 
     public String getTitle() {
-	return title;
+        return title;
     }
 
     public void setTitle(String title) {
-	this.title = title;
+        this.title = title;
     }
 
     public String getText() {
-	return text;
+        return text;
     }
 
     public void setText(String text) {
-	this.text = text;
+        this.text = text;
     }
 
     public String getModel() {
-	return model;
+        return model;
     }
 
     public void setModel(String model) {
-	this.model = model;
+        this.model = model;
     }
 
     public String getFormat() {
-	return format;
+        return format;
     }
 
     public void setFormat(String format) {
-	this.format = format;
+        this.format = format;
     }
 
     public String getComment() {
-	return comment;
+        return comment;
     }
 
     public void setComment(String comment) {
-	this.comment = comment;
+        this.comment = comment;
     }
 
     public Long getId() {
-	return id;
+        return id;
     }
 
     public void setId(Long id) {
-	this.id = id;
+        this.id = id;
     }
 
     public Date getTimeStamp() {
-	return timeStamp;
+        return timeStamp;
     }
 
     public void setTimeStamp(Date timeStamp) {
-	this.timeStamp = timeStamp;
+        this.timeStamp = timeStamp;
     }
 
     public String getUserName() {
-	return userName;
+        return userName;
     }
 
     public void setUserName(String userName) {
-	this.userName = userName;
+        this.userName = userName;
+    }
+
+    public void clear() {
+        this.comment = null;
+        this.format = null;
+        this.id = null;
+        this.model = null;
+        this.text = null;
+        this.timeStamp = null;
+        this.title = null;
+        this.userName = null;
     }
 
 }

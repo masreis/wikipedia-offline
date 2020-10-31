@@ -1,10 +1,11 @@
 package net.marcoreis.logging;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class TesteException {
 
-    private static Logger logger = Logger.getLogger(TesteException.class);
+    private static Logger logger = LoggerFactory.getLogger(TesteException.class);
 
     public void teste() {
 	try {
